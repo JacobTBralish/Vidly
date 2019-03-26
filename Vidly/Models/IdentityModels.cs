@@ -20,6 +20,11 @@ namespace Vidly.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        /* Added this DbSet to make entity framework aware of the 
+         * Customers table so that we can add it in our next migration*/
+        public DbSet<Customer> Customers { get; set; }
+
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
